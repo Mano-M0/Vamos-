@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acampamento da Juventude do Sínodo Local de Viana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin: 20px;
+        }
+        #photos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        #photos img {
+            margin: 10px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .blink {
+            animation: blink 1s steps(5, start) infinite;
+        }
+        @keyframes blink {
+            to {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acampamento da Juventude do Sínodo Local de Viana</h1>
+        <img src="IMG-20250118-WA0222.jpg" alt="Panfleto do Acampamento" style="width: 200px;">
+    </header>
+
+    <section>
+        <p>Alusivo ao seu primeiro aniversário, a sociedade de jovens do sínodo local de Viana realizará nos dias 13 a 16 de fevereiro o acampamento da Juventude do Sínodo local de Viana.</p>
+        <p>Que vai se realizar na Mecol.</p>
+    </section>
+
+    <div id="countdown">
+        <p class="blink">Preparem-se!</p>
+        <p id="timer"></p>
+    </div>
+
+    <div id="photos">
+        <!-- Fotos dos participantes -->
+        <!-- Adicione as imagens dos participantes aqui -->
+    </div>
+
+    <button onclick="window.location.href='https://www.facebook.com/profile.php?id=61558968033674'">Confirma já a tua presença!</button>
+
+    <footer>
+        <marquee>Para mais informações entre em contacto com a Direção do Seu Pastorado, Congregação, Ponto de Preparação ou deixe uma SMS na página da sociedade dos jovens do Sínodo Local de Viana.</marquee>
+    </footer>
+
+    <script>
+        // Contagem regressiva
+        const countDownDate = new Date("Feb 13, 2025 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "Chegou o dia da Renúncia!";
+                document.getElementById("timer").classList.add("blink");
+            }
+        }, 1000);
+
+        // Rodapé de fotos
+        const photos = [
+            // Adicione os caminhos das fotos dos participantes aqui
+        ];
+
+        const photosContainer = document.getElementById('photos');
+        photos.forEach(photo => {
+            const img = document.createElement('img');
+            img.src = photo;
+            photosContainer.appendChild(img);
+        });
+    </script>
+</body>
+</html>
